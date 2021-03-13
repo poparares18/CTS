@@ -1,5 +1,7 @@
 package ro.ase.cts.clase;
 
+import java.util.Arrays;
+
 public abstract class Aplicant{
 	protected String nume;
 	protected String prenume;
@@ -40,9 +42,6 @@ public abstract class Aplicant{
 		this.punctaj = punctaj;
 	}
 	
-	
-
-	
 	public Aplicant() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,8 +58,34 @@ public abstract class Aplicant{
 	public int getNr_proiecte() {
 		return nr_proiecte;
 	}
-	public void setNr_proiecte(int nr_proiecte) {
-		this.nr_proiecte = nr_proiecte;
+
+	public String[] getDenumireProiect() {
+		return denumireProiect;
 	}
+	public void setDenumiriProiecte(String[] denumireProiect, int nr_proiecte) {
+		this.nr_proiecte = nr_proiecte;
+		this.denumireProiect = denumireProiect;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Aplicant [nume=");
+		builder.append(nume);
+		builder.append(", prenume=");
+		builder.append(prenume);
+		builder.append(", varsta=");
+		builder.append(varsta);
+		builder.append(", punctaj=");
+		builder.append(punctaj);
+		builder.append(", nr_proiecte=");
+		builder.append(nr_proiecte);
+		builder.append(", denumireProiect=");
+		builder.append(Arrays.toString(denumireProiect));
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 
 }
