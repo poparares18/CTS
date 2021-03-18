@@ -1,10 +1,9 @@
 package ro.ase.cts.clase;
 
-import java.util.Arrays;
-
 public class Student extends Aplicant {
 	protected String facultate;
 	protected int an_studii;
+	protected static int sumaFinantareStudent = 20;
 	
 	
 	public String getFacultate() {
@@ -41,11 +40,7 @@ public class Student extends Aplicant {
 		return stringBuilder.toString();
 	}
 	
-	
 	public int finantare() {
-		int s=20;
-		System.out.println("Studentul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
-		return s;
+		return sumaFinantareStudent;
 	}
-	
 }
