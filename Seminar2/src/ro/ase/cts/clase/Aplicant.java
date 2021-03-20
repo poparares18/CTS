@@ -1,12 +1,15 @@
 package ro.ase.cts.clase;
 
+import java.util.Arrays;
+
 public abstract class Aplicant{
 	protected String nume;
 	protected String prenume;
 	protected int varsta;
 	protected int punctaj;
-	protected int nr_proiecte;
+	protected int nrProiecte;
 	protected String[] denumireProiect;
+	protected static int punctajAcceptare = 80;
 	
 	
 	public String getNume() {
@@ -28,11 +31,11 @@ public abstract class Aplicant{
 		this.varsta = varsta;
 	}
 	public void statut(){
-		if(punctaj>80)
-			System.out.println("Aplicantul "+nume+" "+prenume+" a fost acceptat.");
-		else
-			System.out.println("Aplicantul "+nume+" "+prenume+" nu a fost acceptat.");
-		}
+		String mesaj;
+		mesaj = punctaj > punctajAcceptare ? " a fost acceptat." : " nu a fost acceptat.";
+		
+		System.out.println("Aplicantul " + nume + " " + prenume + mesaj);
+	}
 	public int getPunctaj() {
 		return punctaj;
 	}
@@ -40,12 +43,8 @@ public abstract class Aplicant{
 		this.punctaj = punctaj;
 	}
 	
-	
-
-	
 	public Aplicant() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect) {
 		super();
@@ -53,14 +52,39 @@ public abstract class Aplicant{
 		this.prenume = prenume;
 		this.varsta = varsta;
 		this.punctaj = punctaj;
-		this.nr_proiecte = nr_proiecte;
+		this.nrProiecte = nr_proiecte;
 		this.denumireProiect = denumireProiect;
 	}
 	public int getNr_proiecte() {
-		return nr_proiecte;
-	}
-	public void setNr_proiecte(int nr_proiecte) {
-		this.nr_proiecte = nr_proiecte;
+		return nrProiecte;
 	}
 
+	public String[] getDenumireProiect() {
+		return denumireProiect;
+	}
+	public void setDenumiriProiecte(String[] denumireProiect, int nr_proiecte) {
+		this.nrProiecte = nr_proiecte;
+		this.denumireProiect = denumireProiect;
+	}
+	
+	public abstract int finantare();
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Aplicant [nume=");
+		builder.append(nume);
+		builder.append(", prenume=");
+		builder.append(prenume);
+		builder.append(", varsta=");
+		builder.append(varsta);
+		builder.append(", punctaj=");
+		builder.append(punctaj);
+		builder.append(", nr_proiecte=");
+		builder.append(nrProiecte);
+		builder.append(", denumireProiect=");
+		builder.append(Arrays.toString(denumireProiect));
+		builder.append("]");
+		return builder.toString();
+	}
 }
