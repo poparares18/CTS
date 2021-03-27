@@ -14,6 +14,7 @@ public class Main {
         System.out.println(portar.toString());
         System.out.println(fundas.toString());
 
+        //Factory cu singleton
         FactorySingleton factorySingleton = FactorySingleton.getInstance();
         Jucator portar2 = factorySingleton.getJucator(TipJucator.PORTAR, "Rares3", 29);
         Jucator fundas2 = factorySingleton.getJucator(TipJucator.FUNDAS, "Rares4", 26);
